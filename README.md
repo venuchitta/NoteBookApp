@@ -1,22 +1,21 @@
 # Interview
-Conway's Game of Life in Rails
 
-The interview will be autonomous and last 2 hours. Please write clean well tested code. We will be judging the submission based on quality of individual commits as well as the project as a whole so be sure to commit early and often. Write a branch with your first_name-last_name as the style for the branch. For example, my submission would be on a branch titled ben-nelson. Open a pull request when you are completed or whenever the time for the interview expires, whichever comes first. 
+Your problem will be to create a Ruby on Rails application to service small businesses financial management. A user should be able to log into your system, log and categorize transactions and view reporting metrics on those transactions (such as when transactions were logged and what types of transactions were logged and the amounts of different categories of transactions). You should be able to import the Sales Receipt information (https://developer.intuit.com/docs/api/accounting/SalesReceipt) from the Quickbooks Online OAuth API into your system and log the receipts as transactions. Set your Quickbooks Online app up as a Sandbox application so we can validate it works properly (https://developer.intuit.com/docs/0100_accounting/0006_sandboxes).  Additional information about the Quickbooks Online API is located here - https://developer.intuit.com/docs/0100_accounting.
 
+The application must meet the minimum criteria below. There is no limit to libraries or external services you can use to improve functionality of the application so feel free to use anything on the web. The app should be both well designed (pleasing to the eye) and well coded.
 
-Do not hesitate to ask questions! We will be available to clarify problems encountered.
+The interview will be autonomous and last one week (beginning Friday October 9 2015 and ending Friday October 16 2015 at 10AM MST). Please write clean well tested code. We will be judging the submission based on quality of individual commits as well as the project as a whole so be sure to commit early and often. Write a branch with your first_name-last_name as the style for the branch. For example, my submission would be on a branch titled ben-nelson. Open a pull request when you are completed or whenever the time for the interview expires, whichever comes first. 
 
-The problem is to write a Rails application that will allow the user to play [Conway's Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life). Since this is a zero player game we will have the user define the initial state in the Rails application and then display the outcome of the game from there to the user.
+Do not hesitate to ask questions! We will be available to clarify problems encountered. Send questions or concerns to ben@bookly.co
 
-The rules of the game are as follows (taken from Wikipedia):
+Specific details of the problem are to write a Rails application that will allow the following:
+1. The application should have an API that you can access with a JSON client, such as curl or a mobile app.
+2. The application should have some form of authentication scheme and user accounts. You should be able to sign up for an account.
+3. A user should be able to log transactions with an amount and type.
+4. A user should be able to categorize transactions by type.
+5. A user should be able to create categories to assign transactions to.
+6. A user should be able to import sales receipts from Quickbooks Online as transactions.
+7. A user should be able to generate graphical reports displaying information on transactions they have logged.
+8. The types of supported reports that should be included should be - transactions by category & transactions by date
 
-The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
-
-Any live cell with fewer than two live neighbours dies, as if caused by under-population.
-Any live cell with two or three live neighbours lives on to the next generation.
-Any live cell with more than three live neighbours dies, as if by overcrowding.
-Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-
-The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one). The rules continue to be applied repeatedly to create further generations.
-
-Plagiarism will result in disqualification of applicants.
+Any additional features in addition to the above are welcome and encouraged.
