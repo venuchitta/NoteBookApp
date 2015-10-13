@@ -1,0 +1,10 @@
+<%= simple_form_for(@customer, remote: request.xhr?, html: { class: "form-horizontal", role: "form" , data: { modal: true } }) do |f| %>
+	<%= f.label :name %> <br />
+	<%= f.text_field :name, class: 'form-control', value: @customer.name %> <br />
+	<%= f.label :email %> <br />
+	<%= f.email_field :email, class: 'form-control', value: @customer.email %> <br />
+	<%= f.label :phone_number %> <br />
+	<%= f.text_field :phone_no, class: 'form-control', value: @customer.phone_no %> <br />
+	
+	<%= f.button :submit, class: "btn btn-primary" %>
+<%end%>

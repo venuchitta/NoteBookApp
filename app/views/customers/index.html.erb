@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-sm-9">
+		<div class="container">
+		    <div class="row col-md-11 col-md-offset-0 custyle">
+		    <table class="table table-striped custab">
+		    <thead>
+					<%= stylesheet_link_tag "customers" %>
+				<%= link_to '+  Add new Customers', new_customer_path, data: { modal: true }, class: "btn btn-primary btn-xs pull-right add-cust"%>
+		        <tr>
+		            <th>ID</th>
+		            <th>Name</th>
+		            <th data-hide="phone,tablet">Email</th>
+		            <th >Phone No</th>
+		             <th data-hide="phone,tablet">Invoices</th>
+		            <th>Payments</th> 
+		            <th class="text-center">Action</th>
+		        </tr>
+		    </thead>
+					<% if @customers%>
+						<%@customers.each do |customer|%>
+		            <tr>
+		                <td><%= customer.id%></td>
+		                <td><%= customer.name%></td>
+		                <td><%= customer.email%></td>
+		                <td><%= customer.phone_no%></td>
+		                <td><%= link_to 'List Invoices', invoices_path, method: :get%></td>
+		                <td><%= link_to 'List Payments', payments_path, method: :get%></td>
+		                <td class="text-center">
+											<%= link_to 'Edit', edit_customer_path(customer), data: { modal: true }, class: "glyphicon glyphicon-edit btn btn-info btn-xs "%>
+											<%= link_to 'Del', customer, method: :delete,  data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs glyphicon glyphicon-remove" %>
+</td>
+		            </tr>
+						<%end%>
+					<%end%>	
+		    </table>
+		    </div>
+		</div>
+</div>
+</div>
+
+

@@ -1,0 +1,59 @@
+<div class="row">
+
+  <div class="col-sm-9">
+		<div class="container">
+		    <div class="row col-md-11 col-md-offset-0 custyle">
+		    <table class="table table-striped custab">
+		    <thead>
+					<% if user_signed_in?%>
+					  <% unless session[:token] %>
+						<ipp:connectToIntuit></ipp:connectToIntuit>
+						<%else%>
+					    <div>
+					      <%= link_to 'Disconnect from QuickBooks', disconnect_quickbooks_path, data: { confirm: 'Are you sure you want to disconnect?' } %>
+					    </div>
+					  <% end %>
+					  <% if notice %>
+					    <div style="padding: 10px;background: gainsboro;font-weight: 900;width: 50%;"><%= notice %></div>
+					  <% end %>
+
+
+					  <script type="text/javascript" src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere.js"></script>
+					  <!-- configure the Intuit object: 'grantUrl' is a URL in your application which kicks off the flow, see below -->
+					  <script>
+					      intuit.ipp.anywhere.setup({menuProxy: '/path/to/blue-dot', grantUrl: '<%= authenticate_quickbooks_url %>'});
+					  // <% if user_signed_in? && !session[:token] %>
+					  //     intuit.ipp.anywhere.directConnectToIntuit();
+					  // <% end %>
+					  </script>
+						<%else%>
+		
+						<%end%>
+				<%= link_to '+  Add new Customers', root_path, method: :get,  class: "btn btn-primary btn-xs pull-right"%>
+				
+		        <tr>
+		            <th>ID</th>
+		            <th>Title</th>
+		            <th data-hide="phone,tablet">Type</th>
+		            <th >Status</th>
+		            <th data-hide="phone,tablet">Reporter Type</th>
+		            <th>Views</th>
+		            <th class="text-center">Action</th>
+		        </tr>
+		    </thead>
+		            <tr>
+		                <td>1</td>
+		                <td>News</td>
+		                <td>Breaking</td>
+		                <td>Published</td>
+		                <td>Citizen</td>
+		                <td>15000</td>
+		                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+		            </tr>
+		    </table>
+		    </div>
+		</div>
+</div>
+</div>
+
+
